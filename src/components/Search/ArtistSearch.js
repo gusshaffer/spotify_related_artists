@@ -1,6 +1,8 @@
-// src/components/Search/ArtistSearch.js
+// src/components/Search/ArtistSearch.js (updated)
 import React, { useState, useEffect, useRef } from 'react';
 import { getSpotifyApi } from '../../services/spotify';
+import { useToast } from '../UI/ToastContainer';
+import LoadingSpinner from '../UI/LoadingSpinner';
 import './ArtistSearch.css';
 
 const ArtistSearch = ({ onSelectArtist }) => {
@@ -11,6 +13,7 @@ const ArtistSearch = ({ onSelectArtist }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const searchRef = useRef(null);
   const debounceTimeout = useRef(null);
+  const { showError } = useToast();
 
   // Handle search input change with debouncing
   const handleSearchChange = (e) => {
@@ -50,10 +53,14 @@ const ArtistSearch = ({ onSelectArtist }) => {
       } else {
         setSuggestions([]);
       }
+      setError(null);
     } catch (err) {
       console.error('Error searching for artists:', err);
       setError('Failed to search artists. Please try again.');
       setSuggestions([]);
+      
+      // Show error toast
+      showError(`Search error: ${err.message || 'Failed to search for artists'}`);
     } finally {
       setLoading(false);
     }
@@ -147,7 +154,10 @@ const ArtistSearch = ({ onSelectArtist }) => {
       )}
       
       {showDropdown && query && suggestions.length === 0 && !loading && (
-        <div className="no-results">No artists found matching "{query}"</div>
+        <div className="no-results">
+          <span className="no-results-icon">🔍</span>
+          No artists found matching "{query}"
+        </div>
       )}
     </div>
   );

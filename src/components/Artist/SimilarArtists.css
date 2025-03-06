@@ -461,3 +461,85 @@
   border-color: #999;
   background-color: rgba(255, 255, 255, 0.1);
 }
+/* Add to SimilarArtists.css */
+.button-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.button-text {
+  margin-left: 8px;
+}
+
+.similar-artist-card.disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.empty-state-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.similar-artists-error {
+  text-align: center;
+  padding: 30px;
+  background-color: #282828;
+  border-radius: 8px;
+}
+
+.similar-artists-error .error-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  background-color: #e74c3c;
+  color: white;
+  border-radius: 50%;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.similar-artists-error h3 {
+  color: #e74c3c;
+  margin-bottom: 10px;
+}
+
+.playlist-success-message {
+  background-color: rgba(29, 185, 84, 0.1);
+  padding: 20px;
+  border-radius: 6px;
+  margin: 15px;
+  text-align: center;
+}
+
+.playlist-success-message .success-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background-color: #1DB954;
+  color: white;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.playlist-success-message h4 {
+  color: #1DB954;
+  margin-bottom: 10px;
+}
+
+.playlist-success-message p {
+  color: white;
+  margin-bottom: 15px;
+}

@@ -1,6 +1,7 @@
-// src/components/Playlist/QuickCreatePlaylist.js
+// src/components/Playlist/QuickCreatePlaylist.js (updated)
 import React, { useState } from 'react';
 import { createSpotifyPlaylist } from '../../services/playlistService';
+import LoadingSpinner from '../UI/LoadingSpinner';
 import './QuickCreatePlaylist.css';
 
 const QuickCreatePlaylist = ({ playlistData, onSuccess, onError }) => {
@@ -84,15 +85,20 @@ const QuickCreatePlaylist = ({ playlistData, onSuccess, onError }) => {
       >
         {creating ? (
           <>
-            <span className="creating-spinner"></span>
-            Creating Playlist...
+            <LoadingSpinner size="small" />
+            <span className="button-text">Creating Playlist...</span>
           </>
         ) : (
           'Create Playlist Now'
         )}
       </button>
       
-      {error && <div className="quick-create-error">{error}</div>}
+      {error && (
+        <div className="quick-create-error">
+          <span className="error-icon">!</span>
+          {error}
+        </div>
+      )}
       
       <div className="quick-create-details">
         <p>This will create a playlist with:</p>

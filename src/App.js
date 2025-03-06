@@ -1,7 +1,9 @@
 // src/App.js (updated)
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider, useAuth } from './contexts/AuthContext'; // Add useAuth here
+import { AuthProvider, useAuth } from './contexts/AuthContext';
+import { ToastProvider } from './components/UI/ToastContainer';
+import ErrorBoundary from './components/UI/ErrorBoundary';
 import Login from './components/Auth/Login';
 import Callback from './components/Callback';
 import Home from './components/Home';
@@ -9,7 +11,7 @@ import SearchPage from './pages/SearchPage';
 import AuthContainer from './components/Auth/AuthContainer';
 import './App.css';
 
-// Navigation component
+// Navigation component with proper hook usage
 const Navigation = () => {
   const { authenticated, logout, user } = useAuth();
   
@@ -41,43 +43,48 @@ const Navigation = () => {
   );
 };
 
-// App routes
-const AppRoutes = () => {
+// Main application routes, wrapped in a component
+const AppContent = () => {
   return (
-    <>
+    <div className="App">
       <Navigation />
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/callback" element={<Callback />} />
-        <Route 
-          path="/dashboard" 
-          element={
-            <AuthContainer>
-              <Home />
-            </AuthContainer>
-          } 
-        />
-        <Route 
-          path="/search" 
-          element={
-            <AuthContainer>
-              <SearchPage />
-            </AuthContainer>
-          } 
-        />
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
-    </>
+      <ErrorBoundary>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/callback" element={<Callback />} />
+          <Route 
+            path="/dashboard" 
+            element={
+              <AuthContainer>
+                <Home />
+              </AuthContainer>
+            } 
+          />
+          <Route 
+            path="/search" 
+            element={
+              <AuthContainer>
+                <ErrorBoundary>
+                  <SearchPage />
+                </ErrorBoundary>
+              </AuthContainer>
+            } 
+          />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </ErrorBoundary>
+    </div>
   );
 };
 
+// Root App component
 function App() {
   return (
     <Router>
       <AuthProvider>
-        <div className="App">
-          <AppRoutes />
-        </div>
+        <ToastProvider>
+          <AppContent />
+        </ToastProvider>
       </AuthProvider>
     </Router>
   );

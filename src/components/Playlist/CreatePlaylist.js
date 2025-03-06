@@ -1,6 +1,7 @@
 // src/components/Playlist/CreatePlaylist.js (updated)
 import React, { useState } from 'react';
 import { createSpotifyPlaylist } from '../../services/playlistService';
+import LoadingSpinner from '../UI/LoadingSpinner';
 import './CreatePlaylist.css';
 
 const CreatePlaylist = ({ playlistData, onSuccess, onCancel }) => {
@@ -75,7 +76,7 @@ const CreatePlaylist = ({ playlistData, onSuccess, onCancel }) => {
             onClick={onCancel} 
             className="create-another-button"
           >
-            Create Another Playlist
+            Back to Playlist Generator
           </button>
         </div>
       </div>
@@ -105,6 +106,7 @@ const CreatePlaylist = ({ playlistData, onSuccess, onCancel }) => {
       
       {error && (
         <div className="playlist-create-error">
+          <span className="error-icon">!</span>
           {error}
         </div>
       )}
@@ -120,6 +122,7 @@ const CreatePlaylist = ({ playlistData, onSuccess, onCancel }) => {
             required
             maxLength="100"
             className="form-control"
+            disabled={loading}
           />
         </div>
         
@@ -132,6 +135,7 @@ const CreatePlaylist = ({ playlistData, onSuccess, onCancel }) => {
             maxLength="300"
             className="form-control"
             rows="3"
+            disabled={loading}
           />
         </div>
         
@@ -141,6 +145,7 @@ const CreatePlaylist = ({ playlistData, onSuccess, onCancel }) => {
               type="checkbox"
               checked={isPublic}
               onChange={(e) => setIsPublic(e.target.checked)}
+              disabled={loading}
             />
             Make playlist public
           </label>
@@ -160,7 +165,14 @@ const CreatePlaylist = ({ playlistData, onSuccess, onCancel }) => {
             className="create-button"
             disabled={loading}
           >
-            {loading ? 'Creating...' : 'Create Playlist'}
+            {loading ? (
+              <>
+                <LoadingSpinner size="small" />
+                <span className="button-text">Creating...</span>
+              </>
+            ) : (
+              'Create Playlist'
+            )}
           </button>
         </div>
       </form>
