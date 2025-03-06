@@ -1,0 +1,74 @@
+/* src/components/UI/ErrorBoundary.css */
+.error-boundary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  padding: 20px;
+  text-align: center;
+}
+
+.error-boundary-content {
+  background-color: #282828;
+  border-radius: 8px;
+  padding: 30px;
+  max-width: 500px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.error-boundary h2 {
+  color: #e74c3c;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.error-boundary p {
+  color: #b3b3b3;
+  margin-bottom: 20px;
+}
+
+.reload-button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.reload-button:hover {
+  background-color: #2980b9;
+}
+
+.error-details {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.error-details summary {
+  cursor: pointer;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.error-details p {
+  color: #e74c3c;
+  font-family: monospace;
+  background-color: rgba(231, 76, 60, 0.1);
+  padding: 10px;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.error-details pre {
+  color: #999;
+  font-family: monospace;
+  background-color: #1a1a1a;
+  padding: 10px;
+  border-radius: 4px;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+}
