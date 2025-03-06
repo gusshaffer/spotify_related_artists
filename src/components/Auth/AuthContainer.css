@@ -1,0 +1,53 @@
+/* src/components/Auth/AuthContainer.css */
+.auth-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.auth-container h2 {
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.auth-container p {
+  color: #b3b3b3;
+  margin-bottom: 25px;
+}
+
+.auth-error-message {
+  background-color: rgba(231, 76, 60, 0.1);
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.auth-error-message p {
+  color: #e74c3c;
+  margin: 0;
+}
+
+.auth-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.auth-loading .spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(29, 185, 84, 0.1);
+  border-top: 4px solid #1DB954;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

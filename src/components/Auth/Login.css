@@ -1,0 +1,88 @@
+/* src/components/Auth/Login.css */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%);
+}
+
+.login-card {
+  background-color: #282828;
+  border-radius: 8px;
+  padding: 40px;
+  max-width: 500px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.login-card h1 {
+  color: #1DB954;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.login-description {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.login-benefits {
+  background-color: rgba(29, 185, 84, 0.1);
+  border-radius: 6px;
+  padding: 20px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.login-benefits h3 {
+  color: #1DB954;
+  margin-bottom: 10px;
+}
+
+.login-benefits ul {
+  padding-left: 20px;
+}
+
+.login-benefits li {
+  color: #ddd;
+  margin-bottom: 8px;
+}
+
+.login-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1DB954;
+  color: white;
+  font-weight: bold;
+  padding: 16px 32px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  margin: 0 auto;
+  transition: transform 0.1s, background-color 0.3s;
+  width: 80%;
+}
+
+.login-button:hover {
+  background-color: #1ed760;
+  transform: scale(1.03);
+}
+
+.login-button:active {
+  transform: scale(0.97);
+}
+
+.spotify-logo {
+  height: 24px;
+  margin-right: 10px;
+}
+
+.login-disclaimer {
+  color: #a0a0a0;
+  font-size: 0.85rem;
+  margin-top: 25px;
+}

@@ -1,0 +1,463 @@
+/* src/components/Artist/SimilarArtists.css */
+.similar-artists-container {
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 1px solid #333;
+}
+
+.similar-artists-header {
+  margin-bottom: 20px;
+}
+
+.similar-artists-header h2 {
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.similar-artists-header p {
+  color: #b3b3b3;
+  margin-bottom: 5px;
+}
+
+.selection-hint {
+  color: #1DB954;
+  font-size: 0.95rem;
+  margin-top: 10px;
+}
+
+.playlist-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  background-color: #282828;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+.tracks-per-artist-control {
+  display: flex;
+  align-items: center;
+}
+
+.tracks-per-artist-control label {
+  margin-right: 10px;
+  color: #b3b3b3;
+}
+
+.tracks-per-artist-control select {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.selection-controls button {
+  background-color: transparent;
+  border: 1px solid #666;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.selection-controls button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #999;
+}
+
+.generate-playlist-button {
+  background-color: #1DB954;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.generate-playlist-button:hover {
+  background-color: #1ed760;
+}
+
+.generate-playlist-button.disabled {
+  background-color: #444;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.similar-artists-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 1200px) {
+  .similar-artists-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .similar-artists-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .similar-artists-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .similar-artists-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.similar-artist-card {
+  background-color: #282828;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+
+.similar-artist-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.artist-select-indicator {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background-color: transparent;
+  z-index: 1;
+  transition: all 0.2s;
+}
+
+.similar-artist-card.selected .artist-select-indicator {
+  background-color: #1DB954;
+  border-color: #1DB954;
+}
+
+.similar-artist-card.selected {
+  box-shadow: 0 0 0 2px #1DB954;
+}
+
+.similar-artist-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.similar-artist-image-placeholder {
+  width: 100%;
+  height: 180px;
+  background-color: #333;
+}
+
+.similar-artist-info {
+  padding: 15px;
+}
+
+.similar-artist-info h3 {
+  font-size: 1rem;
+  color: #fff;
+  margin: 0 0 5px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.similar-artist-genres {
+  color: #b3b3b3;
+  font-size: 0.85rem;
+  margin: 0 0 8px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.similar-artist-tracks-count {
+  color: #1DB954;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.similar-artists-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(29, 185, 84, 0.1);
+  border-top: 4px solid #1DB954;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.similar-artists-error {
+  background-color: rgba(255, 99, 71, 0.1);
+  color: tomato;
+  padding: 20px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.retry-button {
+  background-color: tomato;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.no-similar-artists {
+  background-color: #282828;
+  padding: 30px;
+  border-radius: 6px;
+  text-align: center;
+  color: #b3b3b3;
+}
+
+/* Generated Playlist Styles */
+.generated-playlist {
+  margin-top: 40px;
+  background-color: #282828;
+  border-radius: 8px;
+  overflow: hidden;
+  animation: fadeInUp 0.5s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.playlist-header {
+  padding: 20px;
+  background-color: rgba(29, 185, 84, 0.1);
+  border-bottom: 1px solid #333;
+}
+
+.playlist-header h3 {
+  color: #1DB954;
+  margin: 0 0 5px 0;
+  font-size: 1.3rem;
+}
+
+.playlist-stats {
+  color: #b3b3b3;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.playlist-tracks-container {
+  padding: 15px;
+}
+
+.playlist-tracks-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.playlist-track-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #333;
+}
+
+.playlist-track-item:last-child {
+  border-bottom: none;
+}
+
+.track-number {
+  width: 30px;
+  text-align: center;
+  color: #b3b3b3;
+  font-size: 0.9rem;
+}
+
+.track-info {
+  flex: 1;
+}
+
+.track-primary {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3px;
+}
+
+.track-name {
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.track-duration {
+  color: #b3b3b3;
+  font-size: 0.85rem;
+}
+
+.track-artist {
+  color: #b3b3b3;
+  font-size: 0.85rem;
+}
+
+.playlist-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+  padding: 15px;
+  border-top: 1px solid #333;
+}
+
+.playlist-action-button {
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.playlist-action-button.primary {
+  background-color: #1DB954;
+  color: white;
+}
+
+.playlist-action-button.primary:hover {
+  background-color: #1ed760;
+}
+
+.playlist-action-button.secondary {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #666;
+}
+
+.playlist-action-button.secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #999;
+}
+/* Add to src/components/Artist/SimilarArtists.css */
+.playlist-success-message {
+  background-color: rgba(29, 185, 84, 0.1);
+  padding: 15px;
+  border-radius: 6px;
+  margin: 15px;
+  text-align: center;
+}
+
+.playlist-success-message p {
+  color: #1DB954;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.view-playlist-link {
+  display: inline-block;
+  background-color: #1DB954;
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.view-playlist-link:hover {
+  background-color: #1ed760;
+}
+
+.playlist-tracks-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px 10px 10px;
+  border-bottom: 1px solid #333;
+  margin-bottom: 10px;
+}
+
+.playlist-tracks-header h4 {
+  color: #fff;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.advanced-create-button {
+  background-color: transparent;
+  color: #b3b3b3;
+  border: 1px solid #666;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.advanced-create-button:hover {
+  color: #fff;
+  border-color: #999;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.playlist-regenerate {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.regenerate-button {
+  background-color: transparent;
+  color: #b3b3b3;
+  border: 1px solid #666;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.regenerate-button:hover {
+  color: #fff;
+  border-color: #999;
+  background-color: rgba(255, 255, 255, 0.1);
+}

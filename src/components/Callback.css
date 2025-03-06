@@ -1,0 +1,63 @@
+/* src/components/Callback.css */
+.callback-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%);
+}
+
+.callback-card {
+  background-color: #282828;
+  border-radius: 8px;
+  padding: 40px;
+  max-width: 500px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.callback-card h2 {
+  color: #1DB954;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.spinner-container {
+  margin: 30px auto;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(29, 185, 84, 0.2);
+  border-top: 5px solid #1DB954;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.status-message {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-top: 20px;
+}
+
+.error-message {
+  color: #ff5252;
+  font-size: 1.1rem;
+  background-color: rgba(255, 82, 82, 0.1);
+  padding: 15px;
+  border-radius: 6px;
+  margin-top: 20px;
+}
+
+.redirect-message {
+  color: #a0a0a0;
+  font-size: 0.9rem;
+  margin-top: 20px;
+}

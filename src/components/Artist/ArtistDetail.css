@@ -1,0 +1,281 @@
+/* src/components/Artist/ArtistDetail.css */
+.artist-detail {
+  margin-top: 40px;
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.artist-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.artist-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 30px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.artist-image-placeholder {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background-color: #333;
+  margin-right: 30px;
+}
+
+.artist-header-info {
+  flex: 1;
+}
+
+.artist-name {
+  font-size: 2.5rem;
+  margin: 0 0 10px 0;
+  color: #fff;
+}
+
+.artist-meta {
+  display: flex;
+  color: #b3b3b3;
+  margin-bottom: 15px;
+}
+
+.artist-followers {
+  margin-right: 20px;
+}
+
+.artist-genres {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.genre-tag {
+  background-color: rgba(29, 185, 84, 0.1);
+  color: #1DB954;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin: 0 8px 8px 0;
+}
+
+.spotify-link {
+  display: inline-block;
+  background-color: #1DB954;
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.spotify-link:hover {
+  background-color: #1ed760;
+}
+
+.loading-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(29, 185, 84, 0.1);
+  border-top: 4px solid #1DB954;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+.artist-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+@media (max-width: 768px) {
+  .artist-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .artist-image, .artist-image-placeholder {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  
+  .artist-genres {
+    justify-content: center;
+  }
+  
+  .artist-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+.section-title {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 10px;
+}
+
+.no-content {
+  color: #b3b3b3;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.top-tracks-list {
+  list-style: none;
+  padding: 0;
+}
+
+.track-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #333;
+}
+
+.track-item:last-child {
+  border-bottom: none;
+}
+
+.track-album-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.track-info {
+  flex: 1;
+}
+
+.track-name-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.track-name {
+  font-size: 1rem;
+  color: #fff;
+}
+
+.track-duration {
+  color: #b3b3b3;
+  font-size: 0.9rem;
+}
+
+.track-album {
+  font-size: 0.85rem;
+  color: #b3b3b3;
+}
+
+.albums-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+@media (max-width: 992px) {
+  .albums-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .albums-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.album-card {
+  text-align: center;
+}
+
+.album-image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  transition: transform 0.2s;
+}
+
+.album-image:hover {
+  transform: scale(1.03);
+}
+
+.album-image-placeholder {
+  width: 100%;
+  aspect-ratio: 1;
+  background-color: #333;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.album-name {
+  font-size: 0.9rem;
+  color: #fff;
+  margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.album-year {
+  font-size: 0.8rem;
+  color: #b3b3b3;
+}
+/* Add to src/components/Artist/ArtistDetail.css */
+.artist-nav {
+  display: flex;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #333;
+}
+
+.artist-nav-button {
+  background: none;
+  border: none;
+  color: #b3b3b3;
+  padding: 15px 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s;
+}
+
+.artist-nav-button:hover {
+  color: #fff;
+}
+
+.artist-nav-button.active {
+  color: #1DB954;
+}
+
+.artist-nav-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #1DB954;
+}

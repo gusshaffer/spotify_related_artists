@@ -1,0 +1,113 @@
+/* src/components/Auth/AuthBridge.css */
+.auth-bridge {
+  background-color: #282828;
+  border-radius: 8px;
+  padding: 30px;
+  max-width: 450px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.auth-bridge h2 {
+  color: #1DB954;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.auth-bridge h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.auth-bridge p {
+  color: #b3b3b3;
+  margin-bottom: 20px;
+}
+
+.start-auth-button, .retry-auth-button {
+  background-color: #1DB954;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 30px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.start-auth-button:hover, .retry-auth-button:hover {
+  background-color: #1ed760;
+  transform: scale(1.03);
+}
+
+.start-auth-button:active, .retry-auth-button:active {
+  transform: scale(0.98);
+}
+
+.retry-auth-button {
+  background-color: #666;
+}
+
+.retry-auth-button:hover {
+  background-color: #777;
+}
+
+.auth-note {
+  font-size: 0.85rem;
+  font-style: italic;
+  margin-top: 15px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(29, 185, 84, 0.1);
+  border-top: 4px solid #1DB954;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.success-icon, .error-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 30px;
+}
+
+.success-icon {
+  background-color: #1DB954;
+  color: white;
+}
+
+.error-icon {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.auth-success h3 {
+  color: #1DB954;
+}
+
+.auth-error h3 {
+  color: #e74c3c;
+}
+
+.auth-error p {
+  background-color: rgba(231, 76, 60, 0.1);
+  padding: 10px;
+  border-radius: 6px;
+  color: #e74c3c;
+  margin-bottom: 20px;
+}

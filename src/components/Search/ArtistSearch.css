@@ -1,0 +1,166 @@
+/* src/components/Search/ArtistSearch.css */
+.artist-search {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 100%;
+  padding: 14px 45px 14px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #282828;
+  color: #fff;
+  font-size: 16px;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.search-input:focus {
+  outline: none;
+  background-color: #333;
+  box-shadow: 0 0 0 2px rgba(29, 185, 84, 0.5);
+}
+
+.search-input::placeholder {
+  color: #b3b3b3;
+}
+
+.search-spinner {
+  position: absolute;
+  right: 16px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(29, 185, 84, 0.1);
+  border-top: 2px solid #1DB954;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.search-error {
+  margin-top: 8px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background-color: rgba(255, 99, 71, 0.1);
+  color: tomato;
+  font-size: 14px;
+}
+
+.suggestions-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 100%;
+  max-height: 400px;
+  overflow-y: auto;
+  background-color: #282828;
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.suggestion-item {
+  cursor: pointer;
+  padding: 12px 16px;
+  transition: background-color 0.2s;
+  border-bottom: 1px solid #333;
+}
+
+.suggestion-item:last-child {
+  border-bottom: none;
+}
+
+.suggestion-item:hover {
+  background-color: #333;
+}
+
+.suggestion-content {
+  display: flex;
+  align-items: center;
+}
+
+.suggestion-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 12px;
+}
+
+.suggestion-image-placeholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #333;
+  margin-right: 12px;
+}
+
+.suggestion-info {
+  flex: 1;
+}
+
+.suggestion-name {
+  color: #fff;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.suggestion-followers {
+  color: #b3b3b3;
+  font-size: 12px;
+}
+
+.suggestion-popularity {
+  width: 60px;
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-left: 8px;
+}
+
+.popularity-bar {
+  height: 100%;
+  background-color: #1DB954;
+  border-radius: 3px;
+}
+
+.no-results {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 100%;
+  padding: 16px;
+  background-color: #282828;
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  color: #b3b3b3;
+  text-align: center;
+  z-index: 1000;
+}
+
+/* For smaller screens */
+@media (max-width: 768px) {
+  .artist-search {
+    max-width: 100%;
+  }
+  
+  .suggestions-dropdown {
+    max-height: 300px;
+  }
+}

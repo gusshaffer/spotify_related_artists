@@ -1,0 +1,226 @@
+/* src/components/Artist/RelatedArtists.css */
+.related-artists-container {
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 1px solid #333;
+}
+
+.related-artists-header {
+  margin-bottom: 20px;
+}
+
+.related-artists-header h2 {
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.related-artists-header p {
+  color: #b3b3b3;
+}
+
+.playlist-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  background-color: #282828;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+.tracks-per-artist-control {
+  display: flex;
+  align-items: center;
+}
+
+.tracks-per-artist-control label {
+  margin-right: 10px;
+  color: #b3b3b3;
+}
+
+.tracks-per-artist-control select {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.selection-controls button {
+  background-color: transparent;
+  border: 1px solid #666;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.selection-controls button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #999;
+}
+
+.generate-playlist-button {
+  background-color: #1DB954;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.generate-playlist-button:hover {
+  background-color: #1ed760;
+}
+
+.generate-playlist-button.disabled {
+  background-color: #444;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.related-artists-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 1200px) {
+  .related-artists-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .related-artists-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .related-artists-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .related-artists-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.related-artist-card {
+  background-color: #282828;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+
+.related-artist-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.artist-select-indicator {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background-color: transparent;
+  z-index: 1;
+  transition: all 0.2s;
+}
+
+.related-artist-card.selected .artist-select-indicator {
+  background-color: #1DB954;
+  border-color: #1DB954;
+}
+
+.related-artist-card.selected {
+  box-shadow: 0 0 0 2px #1DB954;
+}
+
+.related-artist-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.related-artist-image-placeholder {
+  width: 100%;
+  height: 180px;
+  background-color: #333;
+}
+
+.related-artist-info {
+  padding: 15px;
+}
+
+.related-artist-info h3 {
+  font-size: 1rem;
+  color: #fff;
+  margin: 0 0 5px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.related-artist-genres {
+  color: #b3b3b3;
+  font-size: 0.85rem;
+  margin: 0 0 8px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.related-artist-tracks-count {
+  color: #1DB954;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.related-artists-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+}
+
+.related-artists-error {
+  background-color: rgba(255, 99, 71, 0.1);
+  color: tomato;
+  padding: 20px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.retry-button {
+  background-color: tomato;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.no-related-artists {
+  background-color: #282828;
+  padding: 30px;
+  border-radius: 6px;
+  text-align: center;
+  color: #b3b3b3;
+}
