@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Before you start, install the dependencies:
+
+```npm install react-router-dom axios spotify-web-api-js```
+
 ## Available Scripts
 
 In the project directory, you can run:
